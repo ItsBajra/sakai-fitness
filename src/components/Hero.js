@@ -1,9 +1,16 @@
 import React from 'react';
 import heroImage from '../assets/hero.jpg';
+import '../App.css';
 
 const Hero = () => {
+
+  // const styles = {
+  //   width: '1200px',
+  //   height: '670px'
+  // }
+
   return (
-    <div className="relative text-white bg-black w-full h-screen"> 
+    <div className="relative text-white bg-black w-full h-screen quadrilateral"> 
       <div className="absolute inset-0">
         <img src={heroImage} alt="Hero" className="ml-96 object-cover w-full h-full" />
       </div>
