@@ -7,6 +7,9 @@ module.exports = {
       fontFamily: {
         'saira': ['"Saira Condensed"', 'sans-serif'],
       },
+      spacing: {
+        '120': '35rem',
+      },
     },
   },
   plugins: [],
