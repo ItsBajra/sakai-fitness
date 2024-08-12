@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -13,6 +14,16 @@ const Navbar = () => {
 
   const handleSignInClick = () => {
     navigate("/login");
+  };
+
+  const handleInternalLinkClick = (id) => {
+    // Check if we're on the home page
+    if (location.pathname === "/") {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to home and scroll to the section
+      navigate("/", { state: { scrollTo: id } });
+    }
   };
 
   return (
@@ -40,32 +51,44 @@ const Navbar = () => {
           Home
         </a>
         <a
-          href="#bmi"
-          className="hover:text-red-500 transition-colors duration-500"
+          onClick={() => handleInternalLinkClick("bmi")}
+          className="cursor-pointer hover:text-red-500 transition-colors duration-500"
         >
           BMI
         </a>
         <a
-          href="#workout"
+          href="/workoutlog"
           className="hover:text-red-500 transition-colors duration-500"
         >
-          Workout
+          WorkoutLog
         </a>
         <a
-          href="#services"
+          href="/history"
           className="hover:text-red-500 transition-colors duration-500"
+        >
+          History
+        </a>
+        <a
+          href="/workoutpage"
+          className="hover:text-red-500 transition-colors duration-500"
+        >
+          Workouts
+        </a>
+        <a
+          onClick={() => handleInternalLinkClick("services")}
+          className="cursor-pointer hover:text-red-500 transition-colors duration-500"
         >
           Our Services
         </a>
         <a
-          href="#about"
-          className="hover:text-red-500 transition-colors duration-500"
+          onClick={() => handleInternalLinkClick("about")}
+          className="cursor-pointer hover:text-red-500 transition-colors duration-500"
         >
           About
         </a>
         <a
-          href="#contact"
-          className="hover:text-red-500 transition-colors duration-500"
+          onClick={() => handleInternalLinkClick("contact")}
+          className="cursor-pointer hover:text-red-500 transition-colors duration-500"
         >
           Contact
         </a>
@@ -86,43 +109,65 @@ const Navbar = () => {
         <div className="flex flex-col space-y-6 p-8 text-center">
           <a
             href="/"
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              navigate("/");
+            }}
             className="hover:text-red-500 transition-colors duration-500"
           >
             Home
           </a>
           <a
-            href="#bmi"
-            onClick={toggleMenu}
-            className="hover:text-red-500 transition-colors duration-500"
+            onClick={() => {
+              toggleMenu();
+              handleInternalLinkClick("bmi");
+            }}
+            className="cursor-pointer hover:text-red-500 transition-colors duration-500"
           >
             BMI
           </a>
           <a
-            href="#workout"
-            onClick={toggleMenu}
+            href="/workoutlog"
+            onClick={() => {
+              toggleMenu();
+            }}
             className="hover:text-red-500 transition-colors duration-500"
           >
-            Workout
+            WorkoutLog
           </a>
           <a
-            href="#services"
-            onClick={toggleMenu}
+            href="/history"
+            onClick={() => {
+              toggleMenu();
+            }}
             className="hover:text-red-500 transition-colors duration-500"
+          >
+            History
+          </a>
+          <a
+            onClick={() => {
+              toggleMenu();
+              handleInternalLinkClick("services");
+            }}
+            className="cursor-pointer hover:text-red-500 transition-colors duration-500"
           >
             Our Services
           </a>
           <a
-            href="#about"
-            onClick={toggleMenu}
-            className="hover:text-red-500 transition-colors duration-500"
+            onClick={() => {
+              toggleMenu();
+              handleInternalLinkClick("about");
+            }}
+            className="cursor-pointer hover:text-red-500 transition-colors duration-500"
           >
             About
           </a>
           <a
-            href="#contact"
-            onClick={toggleMenu}
-            className="hover:text-red-500 transition-colors duration-500"
+            onClick={() => {
+              toggleMenu();
+              handleInternalLinkClick("contact");
+            }}
+            className="cursor-pointer hover:text-red-500 transition-colors duration-500"
           >
             Contact
           </a>
