@@ -1,0 +1,360 @@
+[{
+  "_id": {
+    "$oid": "66ba5adb471d43d50d958094"
+  },
+  "name": "Bench Press",
+  "focus": "upper chest",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-bench-press-front.mp4#t=0.1",
+  "bodyPart": "chest"
+},
+{
+  "_id": {
+    "$oid": "66ba5b5c471d43d50d958096"
+  },
+  "name": "PushUp",
+  "focus": "Chest & Triceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-push-up-side.mp4#t=0.1",
+  "bodyPart": "chest"
+},
+{
+  "_id": {
+    "$oid": "66ba5ba1471d43d50d958098"
+  },
+  "name": "Dumbbell Incline Bench Press",
+  "focus": "Chest",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-incline-bench-press-front_q2q0T12.mp4#t=0.1",
+  "bodyPart": "chest"
+},
+{
+  "_id": {
+    "$oid": "66ba5bfd471d43d50d95809a"
+  },
+  "name": "Machine Pec Fly",
+  "focus": "Chest",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-pec-fly-side.mp4#t=0.1",
+  "bodyPart": "chest"
+},
+{
+  "_id": {
+    "$oid": "66ba5c21471d43d50d95809c"
+  },
+  "name": "Dumbbell Incline Chest Flys",
+  "focus": "Chest",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-incline-chest-flys-front.mp4#t=0.1",
+  "bodyPart": "chest"
+},
+{
+  "_id": {
+    "$oid": "66ba5c97471d43d50d95809e"
+  },
+  "name": "Chin Ups",
+  "focus": "Biceps, Forearms & Wings",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-chinup-front.mp4#t=0.1",
+  "bodyPart": "biceps"
+},
+{
+  "_id": {
+    "$oid": "66ba5d01471d43d50d9580a0"
+  },
+  "name": "Cable Bayesian Curl",
+  "focus": "Biceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-bilateral-bayesian-curl-side.mp4#t=0.1",
+  "bodyPart": "biceps"
+},
+{
+  "_id": {
+    "$oid": "66ba5d2d471d43d50d9580a2"
+  },
+  "name": "Dumbbell Curl",
+  "focus": "Biceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-curl-side.mp4#t=0.1",
+  "bodyPart": "biceps"
+},
+{
+  "_id": {
+    "$oid": "66ba5d4b471d43d50d9580a4"
+  },
+  "name": "Dumbbell Hammer Curl",
+  "focus": "Biceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-hammer-curl-side.mp4#t=0.1",
+  "bodyPart": "biceps"
+},
+{
+  "_id": {
+    "$oid": "66ba5d78471d43d50d9580a6"
+  },
+  "name": "Cable Twisting Curl",
+  "focus": "Biceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-cable-twisting-curl-front.mp4#t=0.1",
+  "bodyPart": "biceps"
+},
+{
+  "_id": {
+    "$oid": "66ba5ff4471d43d50d9580a8"
+  },
+  "name": "Barbell Close Grip Bench Press",
+  "focus": "Triceps & Chest",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Barbell-barbell-close-grip-bench-press-side.mp4#t=0.1",
+  "bodyPart": "triceps"
+},
+{
+  "_id": {
+    "$oid": "66ba6028471d43d50d9580aa"
+  },
+  "name": "Bench Dips",
+  "focus": "Triceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-bench-dips-side.mp4#t=0.1",
+  "bodyPart": "triceps"
+},
+{
+  "_id": {
+    "$oid": "66ba6045471d43d50d9580ac"
+  },
+  "name": "Diamon Push Ups",
+  "focus": "Triceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-diamond-push-ups-side.mp4#t=0.1",
+  "bodyPart": "triceps"
+},
+{
+  "_id": {
+    "$oid": "66ba6073471d43d50d9580ae"
+  },
+  "name": "Machine Cable V Bar Push Downs",
+  "focus": "Triceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-cable-push-downs-side.mp4#t=0.1",
+  "bodyPart": "triceps"
+},
+{
+  "_id": {
+    "$oid": "66ba6097471d43d50d9580b0"
+  },
+  "name": "Box Dips",
+  "focus": "Triceps & Chest",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-dips-side.mp4#t=0.1",
+  "bodyPart": "triceps"
+},
+{
+  "_id": {
+    "$oid": "66ba6123471d43d50d9580b2"
+  },
+  "name": "Barbell Overhead Press",
+  "focus": "Shoulders",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Barbell-barbell-overhead-press-side.mp4#t=0.1",
+  "bodyPart": "shoulders"
+},
+{
+  "_id": {
+    "$oid": "66ba615b471d43d50d9580b4"
+  },
+  "name": "Dumbbell Seated Overhead Press",
+  "focus": "Shoulders",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-seated-overhead-press-front.mp4#t=0.1",
+  "bodyPart": "shoulders"
+},
+{
+  "_id": {
+    "$oid": "66ba618a471d43d50d9580b6"
+  },
+  "name": "Barbell Upright Row",
+  "focus": "Shoulders & Traps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Barbell-barbell-upright-row-side.mp4#t=0.1",
+  "bodyPart": "shoulders"
+},
+{
+  "_id": {
+    "$oid": "66ba61c7471d43d50d9580b8"
+  },
+  "name": "Elevated Pike Press",
+  "focus": "Shoulders, Traps & Triceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-elevated-pike-press-side.mp4#t=0.1",
+  "bodyPart": "shoulders"
+},
+{
+  "_id": {
+    "$oid": "66ba6205471d43d50d9580ba"
+  },
+  "name": "Kettlebell Upright Row",
+  "focus": "Shoulders & Traps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Kettlebells-kettlebell-upright-row-front.mp4#t=0.1",
+  "bodyPart": "shoulders"
+},
+{
+  "_id": {
+    "$oid": "66ba6376471d43d50d9580bc"
+  },
+  "name": "Pull Ups",
+  "focus": "Back",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-pullup-front.mp4#t=0.1",
+  "bodyPart": "back"
+},
+{
+  "_id": {
+    "$oid": "66ba639d471d43d50d9580be"
+  },
+  "name": "Barbell Bent Over Row",
+  "focus": "Back & Forearms",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-bent-over-row-front.mp4#t=0.1",
+  "bodyPart": "back"
+},
+{
+  "_id": {
+    "$oid": "66ba63c2471d43d50d9580c0"
+  },
+  "name": "Machine Pulldown",
+  "focus": "Back & Biceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-pulldown-side.mp4#t=0.1",
+  "bodyPart": "back"
+},
+{
+  "_id": {
+    "$oid": "66ba63e9471d43d50d9580c2"
+  },
+  "name": "Machine Seated Cable Row",
+  "focus": "Back & Biceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-seated-cable-row-side.mp4#t=0.1",
+  "bodyPart": "back"
+},
+{
+  "_id": {
+    "$oid": "66ba6416471d43d50d9580c4"
+  },
+  "name": "Dumbbell Row Bilateral",
+  "focus": "Back & Biceps",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-row-bilateral-side.mp4#t=0.1",
+  "bodyPart": "back"
+},
+{
+  "_id": {
+    "$oid": "66ba646b471d43d50d9580c6"
+  },
+  "name": "Barbell Situp",
+  "focus": "Abs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Barbell-barbell-situp-side.mp4#t=0.1",
+  "bodyPart": "abs"
+},
+{
+  "_id": {
+    "$oid": "66ba648a471d43d50d9580c8"
+  },
+  "name": "Dumbbell Russian Twist",
+  "focus": "Abs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-russian-twist-side.mp4#t=0.1",
+  "bodyPart": "abs"
+},
+{
+  "_id": {
+    "$oid": "66ba64a9471d43d50d9580ca"
+  },
+  "name": "Hanging Knee Raises",
+  "focus": "Abs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-hanging-knee-raises-side.mp4#t=0.1",
+  "bodyPart": "abs"
+},
+{
+  "_id": {
+    "$oid": "66ba64da471d43d50d9580cc"
+  },
+  "name": "Hollow Hold",
+  "focus": "Abs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Bodyweight-hollow-hold-front.mp4#t=0.1",
+  "bodyPart": "abs"
+},
+{
+  "_id": {
+    "$oid": "66ba6548471d43d50d9580ce"
+  },
+  "name": "Crunches",
+  "focus": "Abs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-crunch-front.mp4#t=0.1",
+  "bodyPart": "abs"
+},
+{
+  "_id": {
+    "$oid": "66ba65a0471d43d50d9580d2"
+  },
+  "name": "Dumbbell Goblet Squat",
+  "focus": "Legs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-dumbbell-goblet-squat-front.mp4#t=0.1",
+  "bodyPart": "legs"
+},
+{
+  "_id": {
+    "$oid": "66ba65c2471d43d50d9580d4"
+  },
+  "name": "Machine Leg Extension",
+  "focus": "Legs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-leg-extension-front.mp4#t=0.1",
+  "bodyPart": "legs"
+},
+{
+  "_id": {
+    "$oid": "66ba65dd471d43d50d9580d6"
+  },
+  "name": "Machine Leg Press",
+  "focus": "Legs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-machine-leg-press-front.mp4#t=0.1",
+  "bodyPart": "legs"
+},
+{
+  "_id": {
+    "$oid": "66ba6601471d43d50d9580d8"
+  },
+  "name": "Dumbbell Bulgarian Split Squat",
+  "focus": "Legs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-bulgarian-split-squat-side.mp4#t=0.1",
+  "bodyPart": "legs"
+},
+{
+  "_id": {
+    "$oid": "66ba6623471d43d50d9580da"
+  },
+  "name": "Machine Hack Squat",
+  "focus": "Legs",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Machine-machine-hack-squat-front.mp4#t=0.1",
+  "bodyPart": "legs"
+},
+{
+  "_id": {
+    "$oid": "66ba6675471d43d50d9580dc"
+  },
+  "name": "Dumbbell Wrist Curl",
+  "focus": "Forearms",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-wrist-curl-side.mp4#t=0.1",
+  "bodyPart": "forearms"
+},
+{
+  "_id": {
+    "$oid": "66ba669f471d43d50d9580de"
+  },
+  "name": "Dumbbell Wrist Extension",
+  "focus": "Forearms",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-wrist-extension-side.mp4#t=0.1",
+  "bodyPart": "forearms"
+},
+{
+  "_id": {
+    "$oid": "66ba66b5471d43d50d9580e0"
+  },
+  "name": "Barbell Wrist Curl",
+  "focus": "Forearms",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Barbell-barbell-wrist-curl-front.mp4#t=0.1",
+  "bodyPart": "forearms"
+},
+{
+  "_id": {
+    "$oid": "66ba66d2471d43d50d9580e2"
+  },
+  "name": "Kettlebell Wrist Curl",
+  "focus": "Forearms",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-Kettlebells-kettlebell-wrist-curl-front.mp4#t=0.1",
+  "bodyPart": "forearms"
+},
+{
+  "_id": {
+    "$oid": "66ba66f0471d43d50d9580e4"
+  },
+  "name": "Barbell Behind The Back Wrist Curl",
+  "focus": "Forearms",
+  "videoLink": "https://media.musclewiki.com/media/uploads/videos/branded/male-barbell-behind-the-back-wrist-curl-front.mp4#t=0.1",
+  "bodyPart": "forearms"
+}]
