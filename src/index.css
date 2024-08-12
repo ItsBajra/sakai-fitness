@@ -18,3 +18,17 @@ body, html {
   width: 100%;
   overflow-x: hidden;
 }
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height to center vertically */
+  padding: 20px; /* Space around the container */
+  background-color: #f0f0f0; /* Optional background color */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+

@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import Scroll from "react-scroll";
-const ScrollLink = Scroll.ScrollLink;
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleSignInClick = () => {
+    navigate("/login");
   };
 
   return (
@@ -30,7 +34,7 @@ const Navbar = () => {
       {/* Main Menu for Larger Screens */}
       <div className="hidden md:flex space-x-6 items-center transition-transform duration-500">
         <a
-          href="#home"
+          href="/"
           className="hover:text-red-500 transition-colors duration-500"
         >
           Home
@@ -65,7 +69,10 @@ const Navbar = () => {
         >
           Contact
         </a>
-        <button className="bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition-colors duration-500">
+        <button
+          className="bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition-colors duration-500"
+          onClick={handleSignInClick}
+        >
           Sign In
         </button>
       </div>
@@ -76,9 +83,9 @@ const Navbar = () => {
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-500 ease-in-out z-20`}
       >
-        <div className="flex flex-col space-y-6 p-8">
+        <div className="flex flex-col space-y-6 p-8 text-center">
           <a
-            href="#home"
+            href="/"
             onClick={toggleMenu}
             className="hover:text-red-500 transition-colors duration-500"
           >
@@ -120,7 +127,10 @@ const Navbar = () => {
             Contact
           </a>
           <button
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu();
+              handleSignInClick();
+            }}
             className="bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition-colors duration-500"
           >
             Sign In

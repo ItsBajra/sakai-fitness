@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Dumbbell, MoveRight } from "lucide-react";
 
 const Services = () => {
@@ -9,7 +10,7 @@ const Services = () => {
         "https://images.unsplash.com/photo-1579758682665-53a1a614eea6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Fitness",
       desc: "Get ready to burn off some serious fat with our high quality products.",
-      link: "#services",
+      link: "/login",
     },
     {
       id: 2,
@@ -17,7 +18,7 @@ const Services = () => {
         "https://images.unsplash.com/photo-1628884879718-60dd217d5c9b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Workout Tracking",
       desc: "Get ready to burn off some serious fat with our high quality products.",
-      link: "#services",
+      link: "/login",
     },
     {
       id: 3,
@@ -25,7 +26,7 @@ const Services = () => {
         "https://images.unsplash.com/photo-1577221084712-45b0445d2b00?q=80&w=1996&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Workout Plans",
       desc: "Get ready to burn off some serious fat with our high quality products.",
-      link: "#services",
+      link: "/login",
     },
     {
       id: 4,
@@ -33,7 +34,7 @@ const Services = () => {
         "https://images.unsplash.com/photo-1581122584612-713f89daa8eb?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Aerobics",
       desc: "Get ready to burn off some serious fat with our high quality products.",
-      link: "#services",
+      link: "/login",
     },
     {
       id: 5,
@@ -41,7 +42,7 @@ const Services = () => {
         "https://images.unsplash.com/photo-1618517048289-4646902edaf5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Boxing",
       desc: "Get ready to burn off some serious fat with our high quality products.",
-      link: "#services",
+      link: "/login",
     },
     {
       id: 6,
@@ -49,7 +50,7 @@ const Services = () => {
         "https://images.unsplash.com/photo-1590803218795-99a0baabb861?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Dance Fitness",
       desc: "Get ready to burn off some serious fat with our high quality products.",
-      link: "#services",
+      link: "/login",
     },
     {
       id: 7,
@@ -57,7 +58,7 @@ const Services = () => {
         "https://images.unsplash.com/photo-1591258370814-01609b341790?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "HIIT",
       desc: "Get ready to burn off some serious fat with our high quality products.",
-      link: "#services",
+      link: "/login",
     },
     {
       id: 8,
@@ -65,7 +66,7 @@ const Services = () => {
         "https://images.unsplash.com/photo-1564282350350-a8355817fd2e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "Zumba",
       desc: "Get ready to burn off some serious fat with our high quality products.",
-      link: "#services",
+      link: "/login",
     },
   ];
 
@@ -103,14 +104,13 @@ const Services = () => {
                 <p className="text-base text-white font-normal text-center mb-4">
                   {data.desc}
                 </p>
-                <button
-                  type="button"
+                <Link
                   className="text-base text-red-600 bg-transparent font-medium px-3 py-1.5 rounded flex items-center justify-center gap-x-1 hover:text-red-600/70 ease-out duration-500"
-                  link={data.link}
+                  to={data.link}
                 >
                   Read More
                   <MoveRight className="w-4 h-4" />
-                </button>
+                </Link>
               </div>
             </div>
           ))}
