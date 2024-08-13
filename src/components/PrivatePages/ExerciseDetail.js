@@ -58,7 +58,7 @@ const ExerciseDetailPage = () => {
             >
               <div className="w-full h-full bg-black/70 absolute top-0 left-0 -z-10"></div>
               {exercise.videoLink && (
-                <div className="w-full h-[40%] relative m-auto md:w-full md:h-[50%] md:m-0">
+                <div className="w-[90%] h-[40%] relative m-auto md:w-full md:h-[50%] md:m-0">
                   {/* <iframe
                     src={exercise.videoLink}
                     title={exercise.name}
@@ -72,7 +72,7 @@ const ExerciseDetailPage = () => {
                   </video>
                 </div>
               )}
-              <div className="w-full h-[75%] md:h-[40%] flex flex-col items-center justify-center text-white p-4">
+              <div className="w-full h-[85%] md:h-[50%] flex flex-col items-center justify-center text-white p-4">
                 <h1 className="text-xl text-white font-semibold text-center mb-4">
                   {exercise.name}
                 </h1>

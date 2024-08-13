@@ -3,7 +3,7 @@ import React from 'react'
 const Banner = () => {
     return (
         <>
-            <div className="w-full h-[35vh] flex-items-center justify-center flex-col relative z-10 lg:py-16 md:py-14 sm:py-12 py-10 lg:px-24 md:px-16 sm:px-6 px-4"
+            <div className="w-full h-[35vh] flex items-center justify-center flex-col relative z-10 lg:py-16 md:py-14 sm:py-12 py-10 lg:px-24 md:px-16 sm:px-6 px-4"
                 style={{
                     backgroundImage: "url(https://images.unsplash.com/photo-1517130038641-a774d04afb3c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
                     backgroundSize: "cover",
@@ -18,7 +18,7 @@ const Banner = () => {
                     Ignite Your Fitness Journey with Premium Solutions.
                 </p>
                 <button
-                    className="text-base text-gray-200 bg-red-600 font-medium px-10 py-3 gap-x-1 hover:bg-red-600/70 ease-out duration-500 uppercase rounded-full"
+                    className="text-base text-gray-200 bg-red-600 font-medium px-10 py-3 gap-x-1 hover:bg-red-600/70 ease-out duration-500 uppercase rounded-full text-center"
                 >
                     Become a member
                 </button>
