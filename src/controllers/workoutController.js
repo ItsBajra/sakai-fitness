@@ -4,32 +4,33 @@ const moment = require("moment");
 
 // get all workouts
 const getWorkouts = async (req, res) => {
-    const { date } = req.query;
-    let workouts;
-  
-    try {
-      if (date) {
-        // Parse the date and ensure it’s in UTC
-        const startOfDay = new Date(`${date}T00:00:00Z`); // Start of the day
-        const endOfDay = new Date(`${date}T23:59:59Z`);  // End of the day
-  
-        workouts = await Workout.find({
-          createdAt: {
-            $gte: startOfDay,
-            $lte: endOfDay,
-          },
-        }).sort({ createdAt: -1 });
-      } else {
-        workouts = await Workout.find({}).sort({ createdAt: -1 });
-      }
-  
-      res.status(200).json(workouts);
-    } catch (error) {
-      res.status(400).json({ error: error.message });
+
+  const user_id = req.user._id;
+
+  const { date } = req.query;
+  let workouts;
+
+  try {
+    if (date) {
+      // Parse the date and ensure it’s in UTC
+      const startOfDay = new Date(`${date}T00:00:00Z`); // Start of the day
+      const endOfDay = new Date(`${date}T23:59:59Z`); // End of the day
+
+      workouts = await Workout.find({
+        createdAt: {
+          $gte: startOfDay,
+          $lte: endOfDay,
+        }, user_id
+      }).sort({ createdAt: -1 });
+    } else {
+      workouts = await Workout.find({user_id}).sort({ createdAt: -1 });
     }
-  };
-  
-  
+
+    res.status(200).json(workouts);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
 // get a single workout
 const getWorkout = async (req, res) => {
@@ -71,7 +72,8 @@ const createWorkout = async (req, res) => {
 
   // add doc to db
   try {
-    const workout = await Workout.create({ title, load, reps });
+    const user_id = req.user._id;
+    const workout = await Workout.create({ title, load, reps, user_id });
     res.status(200).json(workout);
   } catch (error) {
     res.status(400).json({ error: error.message });
