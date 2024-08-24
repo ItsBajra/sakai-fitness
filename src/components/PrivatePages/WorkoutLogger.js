@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const WorkoutLog = () => {
   const [workouts, setWorkouts] = useState([]);
@@ -10,14 +11,26 @@ const WorkoutLog = () => {
   });
   const [editWorkout, setEditWorkout] = useState(null);
 
+  const { user } = useAuthContext();
+
   // Fetch workouts from the server
   useEffect(() => {
-    fetchWorkouts();
-  }, []);
+    if (user) {
+      fetchWorkouts();
+    }
+    else {
+      alert("You are not logged in!");
+      return
+    }
+  }, [user]);
 
   const fetchWorkouts = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/workouts");
+      const response = await fetch("http://localhost:4000/api/workouts", {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       if (!response.ok) {
         throw new Error("Failed to fetch workouts");
       }
@@ -35,11 +48,17 @@ const WorkoutLog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!user) {
+      alert("You are not logged in!");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:4000/api/workouts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
         },
         body: JSON.stringify(newWorkout),
       });
@@ -60,15 +79,23 @@ const WorkoutLog = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+    if (!user) {
+      alert("You are not logged in!");
+      return;
+    }
 
     try {
-      const response = await fetch(`http://localhost:4000/api/workouts/${editWorkout._id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(editWorkout),
-      });
+      const response = await fetch(
+        `http://localhost:4000/api/workouts/${editWorkout._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(editWorkout),
+        }
+      );
 
       if (!response.ok) {
         const text = await response.text();
@@ -76,7 +103,9 @@ const WorkoutLog = () => {
           const errorData = JSON.parse(text);
           throw new Error(errorData.error || "Failed to update workout");
         } catch {
-          throw new Error("Failed to update workout: Server returned an unexpected response.");
+          throw new Error(
+            "Failed to update workout: Server returned an unexpected response."
+          );
         }
       }
 
@@ -90,9 +119,17 @@ const WorkoutLog = () => {
   };
 
   const handleDelete = async (id) => {
+    if (!user) {
+      alert("You are not logged in!");
+      return;
+    }
+
     try {
       const response = await fetch(`http://localhost:4000/api/workouts/${id}`, {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
       });
 
       if (!response.ok) {

@@ -31,10 +31,10 @@ const BMIcalculator = () => {
     <>
       <div
         id="bmi"
-        class="w-full h-auto flex items-center lg:py-16 md:py-14 sm:py-12 py-10
+        className="w-full h-auto flex items-center lg:py-16 md:py-14 sm:py-12 py-10
         lg:px-24 md:px-16 sm:px-6 px-4 bg-black/90"
       >
-        <div class="w-full h-auto flex items-center justify-center flex-col">
+        <div className="w-full h-auto flex items-center justify-center flex-col">
           <h6
             className="lg:text-lg md:text-lf sm:text-base text-base font-medium text-white
                         flex items-center gap-x-2 rounded-t-md py-2 px-4"

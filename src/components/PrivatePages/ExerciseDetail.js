@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Dumbbell, MoveRight } from "lucide-react";
+import { useAuthContext } from "../../hooks/useAuthContext";
+
 
 const ExerciseDetailPage = () => {
   const params = useParams();
@@ -9,7 +11,14 @@ const ExerciseDetailPage = () => {
 
   const [exercises, setExercises] = useState([]);
 
+  const { user } = useAuthContext();
+
   useEffect(() => {
+    if (!user) {
+      alert("You are not logged in!");
+      return;
+    }
+
     if (!bodyPart) {
       console.error("Body part is undefined");
       return;
@@ -18,7 +27,12 @@ const ExerciseDetailPage = () => {
     const fetchExercises = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/exercises/${bodyPart}`
+          `http://localhost:4000/api/exercises/${bodyPart}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         );
         const data = await response.json();
 
@@ -33,7 +47,7 @@ const ExerciseDetailPage = () => {
     };
 
     fetchExercises();
-  }, [bodyPart]);
+  }, [bodyPart, user]);
 
   return (
     <div

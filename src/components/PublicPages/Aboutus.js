@@ -16,7 +16,7 @@ const Aboutus = () => {
         />
       </div>
       <div
-        class="lg:w-[50%] md:w-full sm:w-full w-full h-auto lg:text-start
+        className="lg:w-[50%] md:w-full sm:w-full w-full h-auto lg:text-start
           md:text-start sm:text-start text-center xl:mr-5"
       >
         <h6
@@ -28,17 +28,17 @@ const Aboutus = () => {
           About Us
         </h6>
         <h1
-          class="lg:text-3xl md:text-3xl sm:text-2xl text-xl font-semibold text-gray-600 mb-4 
+          className="lg:text-3xl md:text-3xl sm:text-2xl text-xl font-semibold text-gray-600 mb-4 
                       leading-normal lg:pe-5 md:pe-4 sm:pe-1 pe-0"
         >
           Effortless Strength, Timely Gains: Building Better Bodies, Faster
         </h1>
-        <p class="lg:text-xl md:text-base sm:text-sm text-sm text-gray-400 font-medium mb-4">
+        <p className="lg:text-xl md:text-base sm:text-sm text-sm text-gray-400 font-medium mb-4">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque a,
           necessitatibus id rerum ex velit officia eum autem quo nemo expedita
           temporibus cumque impedit numquam fuga labore veniam earum itaque.
         </p>
-        <p class="lg:text-xl md:text-base sm:text-sm text-sm text-gray-400 font-medium mb-4">
+        <p className="lg:text-xl md:text-base sm:text-sm text-sm text-gray-400 font-medium mb-4">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque a,
           necessitatibus id rerum ex velit officia eum autem quo nemo expedita
           temporibus cumque impedit numquam fuga labore veniam earum itaque.
@@ -47,7 +47,7 @@ const Aboutus = () => {
           aspernatur deserunt? Earum, reprehenderit dicta cum minus sequi quam
           in optio?
         </p>
-        <p class="lg:text-xl md:text-base sm:text-sm text-sm text-gray-400 font-medium mb-4">
+        <p className="lg:text-xl md:text-base sm:text-sm text-sm text-gray-400 font-medium mb-4">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque a,
           necessitatibus id rerum ex velit officia eum autem quo nemo expedita
           temporibus cumque impedit numquam fuga labore veniam earum itaque.

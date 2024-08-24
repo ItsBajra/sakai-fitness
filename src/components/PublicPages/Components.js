@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// Container Component
 export const Container = styled.div`
   background-color: #fff;
   border-radius: 10px;
@@ -11,6 +12,7 @@ export const Container = styled.div`
   min-height: 400px;
 `;
 
+// SignUpContainer Component
 export const SignUpContainer = styled.div`
   position: absolute;
   top: 0;
@@ -30,6 +32,7 @@ export const SignUpContainer = styled.div`
       : null}
 `;
 
+// SignInContainer Component
 export const SignInContainer = styled.div`
   position: absolute;
   top: 0;
@@ -42,6 +45,7 @@ export const SignInContainer = styled.div`
     props.signinIn !== true ? `transform: translateX(100%);` : null}
 `;
 
+// Form Component
 export const Form = styled.form`
   background-color: #ffffff;
   display: flex;
@@ -53,18 +57,20 @@ export const Form = styled.form`
   text-align: center;
 `;
 
+// Title Component
 export const Title = styled.h1`
   font-weight: bold;
   margin: 0;
 `;
 
+// Input Component
 export const Input = styled.input`
   background-color: #eee;
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
-  font-size: 16px; /* Default font size */
+  font-size: 16px;
 
   /* Media query for smaller screens */
   @media (max-width: 600px) {
@@ -72,6 +78,46 @@ export const Input = styled.input`
   }
 `;
 
+// PasswordInputContainer Component
+export const PasswordInputContainer = styled.div`
+  position: relative;
+  width: 100%;
+  margin: 8px 0;
+
+  /* Media query for smaller screens */
+  @media (max-width: 600px) {
+    width: 170%;
+  }
+`;
+
+// PasswordInput Component
+export const PasswordInput = styled(Input)`
+  padding-right: 40px;
+  box-sizing: border-box;
+`;
+
+// TogglePasswordIcon Component
+export const TogglePasswordIcon = styled.span`
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+
+  &:hover {
+    color: #000;
+  }
+
+  /* Media query for smaller screens */
+  @media (max-width: 600px) {
+    right: 5px;
+    font-size: 16px;
+  }
+`;
+
+// Button Component
 export const Button = styled.button`
   border-radius: 20px;
   border: 1px solid #ff4b2b;
@@ -90,17 +136,22 @@ export const Button = styled.button`
     outline: none;
   }
 `;
+
+// GhostButton Component
 export const GhostButton = styled(Button)`
   background-color: transparent;
   border-color: #ffffff;
 `;
 
+// Anchor Component
 export const Anchor = styled.a`
   color: #333;
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
 `;
+
+// OverlayContainer Component
 export const OverlayContainer = styled.div`
   position: absolute;
   top: 0;
@@ -114,6 +165,7 @@ export const OverlayContainer = styled.div`
     props.signinIn !== true ? `transform: translateX(-100%);` : null}
 `;
 
+// Overlay Component
 export const Overlay = styled.div`
   background: #ff416c;
   background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
@@ -131,6 +183,7 @@ export const Overlay = styled.div`
   ${(props) => (props.signinIn !== true ? `transform: translateX(50%);` : null)}
 `;
 
+// OverlayPanel Component
 export const OverlayPanel = styled.div`
   position: absolute;
   display: flex;
@@ -146,21 +199,43 @@ export const OverlayPanel = styled.div`
   transition: transform 0.6s ease-in-out;
 `;
 
+// LeftOverlayPanel Component
 export const LeftOverlayPanel = styled(OverlayPanel)`
   transform: translateX(-20%);
   ${(props) => (props.signinIn !== true ? `transform: translateX(0);` : null)}
 `;
 
+// RightOverlayPanel Component
 export const RightOverlayPanel = styled(OverlayPanel)`
   right: 0;
   transform: translateX(0);
   ${(props) => (props.signinIn !== true ? `transform: translateX(20%);` : null)}
 `;
 
+// Paragraph Component
 export const Paragraph = styled.p`
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
+`;
+
+export const Error = styled.div`
+  color: #ff4d4d; /* Strong red color */
+  background-color: #ffe6e6; /* Light red background */
+  padding: 10px; /* Padding for spacing */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 15px; /* Space above the error message */
+  font-weight: bold; /* Bold text for emphasis */
+  text-align: center; /* Center-align the error message */
+  border: 1px solid #ff4d4d; /* Border for emphasis */
+  width: 100%; /* Full width */
+  max-width: 400px; /* Maximum width to keep it manageable on larger screens */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+
+  @media (max-width: 768px) {
+    max-width: 90%; /* Responsive width on smaller screens */
+  }
 `;

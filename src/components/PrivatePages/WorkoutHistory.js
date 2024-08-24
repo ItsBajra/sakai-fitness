@@ -2,20 +2,31 @@ import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { TrashIcon } from "@heroicons/react/outline";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const WorkoutHistory = () => {
   const [workouts, setWorkouts] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
 
+  const { user } = useAuthContext();
   // Function to fetch workouts based on the selected date
   useEffect(() => {
     // Format the selected date as YYYY-MM-DD
     const formattedDate = selectedDate.toISOString().split("T")[0];
 
     const fetchWorkouts = async () => {
+      if (!user) {
+        return;
+      }
+
       try {
         const response = await fetch(
-          `http://localhost:4000/api/workouts?date=${formattedDate}`
+          `http://localhost:4000/api/workouts?date=${formattedDate}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
         );
         const data = await response.json();
 
@@ -34,9 +45,14 @@ const WorkoutHistory = () => {
 
   // Function to handle workout deletion
   const handleDelete = async (id) => {
+    if (!user) {
+      alert("You are not logged in!");
+      return;
+    }
     try {
       const response = await fetch(`http://localhost:4000/api/workouts/${id}`, {
         method: "DELETE",
+        Authorization: `Bearer ${user.token}`,
       });
 
       if (!response.ok) {
