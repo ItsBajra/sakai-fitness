@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { Dumbbell, MoveRight } from "lucide-react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-
 const ExerciseDetailPage = () => {
   const params = useParams();
   console.log("Params:", params); // Debug all parameters

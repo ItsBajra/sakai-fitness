@@ -1,7 +1,20 @@
 import { Dumbbell } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import React from "react";
 
 const Aboutus = () => {
+  const navigate = useNavigate();
+  const user = useAuthContext();
+
+  const handleClick = () => {
+    if (user) {
+      navigate("/workoutpage");
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div
       id="about"
@@ -34,32 +47,32 @@ const Aboutus = () => {
           Effortless Strength, Timely Gains: Building Better Bodies, Faster
         </h1>
         <p className="lg:text-xl md:text-base sm:text-sm text-sm text-gray-400 font-medium mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque a,
-          necessitatibus id rerum ex velit officia eum autem quo nemo expedita
-          temporibus cumque impedit numquam fuga labore veniam earum itaque.
+          Our journey with SakaiFitness began with a quest for balance and
+          mastery. The name "SakaiFitness" was inspired by the legendary samurai
+          of Ghost of Tsushima, Jin Sakai, who embodies discipline, strength,
+          and the pursuit of excellence. Just as Jin Sakai navigated his world
+          with precision and focus, we aim to guide you on a journey to fitness
+          with the same dedication and clarity.
         </p>
         <p className="lg:text-xl md:text-base sm:text-sm text-sm text-gray-400 font-medium mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque a,
-          necessitatibus id rerum ex velit officia eum autem quo nemo expedita
-          temporibus cumque impedit numquam fuga labore veniam earum itaque.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio
-          voluptatem, repellat sed fuga a officiis quis minima, facilis dolores
-          aspernatur deserunt? Earum, reprehenderit dicta cum minus sequi quam
-          in optio?
+          SakaiFitness is more than just an app; it’s your personal guide to
+          achieving your fitness goals. With our app, you can explore a diverse
+          range of workouts tailored to target specific body parts, from
+          strengthening your core to enhancing your endurance. Each workout is
+          carefully crafted to help you achieve balanced and effective results.
         </p>
         <p className="lg:text-xl md:text-base sm:text-sm text-sm text-gray-400 font-medium mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque a,
-          necessitatibus id rerum ex velit officia eum autem quo nemo expedita
-          temporibus cumque impedit numquam fuga labore veniam earum itaque.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio
-          voluptatem, repellat sed fuga a officiis quis minima, facilis dolores
-          aspernatur deserunt? Earum, reprehenderit dicta cum minus sequi quam
-          in optio?
+          Our intuitive interface allows you to log your workouts effortlessly.
+          You can track your progress with organized entries by date, ensuring
+          that every session is accounted for and easily accessible. Whether
+          you're hitting new personal records or simply maintaining your
+          routine, SakaiFitness provides a clear overview of your journey.
         </p>
         <button
           className="text-base  font-medium flex text-white
                       items-center border  gap-x-1 ease-out lg:w-auto md:w-auto sm:w-full w-full
                       px-7 py-2 uppercase justify-center bg-red-500 rounded hover:bg-red-600 transition-colors duration-700"
+          onClick={handleClick}
         >
           Become a Member
         </button>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,11 +12,14 @@ import WorkoutLog from "./components/PrivatePages/WorkoutLogger";
 import WorkoutHistory from "./components/PrivatePages/WorkoutHistory";
 import WorkoutPage from "./components/PrivatePages/WorkoutPage";
 import ExerciseDetailPage from "./components/PrivatePages/ExerciseDetail";
+import ManageUsers from "./components/AdminPages/ManageUser"; // Add import for ManageUsers
+import ManageWorkouts from "./components/AdminPages/ManageWorkouts"; // Add import for ManageWorkouts
 import { useAuthContext } from "./hooks/useAuthContext";
 import ScrollToTop from "./components/Functionality/ScrollToTop";
 
 function App() {
   const { user } = useAuthContext();
+  const isAdmin = user && user.email === "admin@admin.com";
 
   console.log("Current User: ", user);
 
@@ -45,6 +48,14 @@ function App() {
         <Route
           path="/workoutpage/:bodypart"
           element={user ? <ExerciseDetailPage /> : <Authentication />}
+        />
+        <Route
+          path="/admin/users"
+          element={isAdmin ? <ManageUsers /> : <Authentication />}
+        />
+        <Route
+          path="/admin/workouts"
+          element={isAdmin ? <ManageWorkouts /> : <Authentication />}
         />
       </Routes>
     </>

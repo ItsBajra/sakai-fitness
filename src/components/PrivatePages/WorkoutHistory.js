@@ -70,7 +70,7 @@ const WorkoutHistory = () => {
   return (
     <div className="w-full h-screen flex flex-col lg:flex-row items-center justify-center lg:px-24 md:px-16 sm:px-6 px-4 mt-5">
       {/* Left Side - Display Workouts */}
-      <div className="w-full lg:w-2/3 h-full p-6 bg-black/80 rounded-lg overflow-y-auto lg:rounded-l-lg lg:rounded-r-none">
+      <div className="w-full lg:w-2/3 h-full p-6 bg-black/85 rounded-lg overflow-y-auto lg:rounded-l-lg lg:rounded-r-none">
         <h2 className="text-xl text-white font-semibold mb-4">
           Workouts on {selectedDate.toDateString()}
         </h2>

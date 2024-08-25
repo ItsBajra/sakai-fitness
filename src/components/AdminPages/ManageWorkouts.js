@@ -2,42 +2,51 @@ import React, { useState, useEffect } from "react";
 import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-const WorkoutLog = () => {
+const ManageWorkouts = () => {
   const [workouts, setWorkouts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(""); // Add state for search query
   const [newWorkout, setNewWorkout] = useState({
-    title: "",
-    load: "",
-    reps: "",
+    name: "",
+    focus: "",
+    videoLink: "",
+    image: "",
+    bodyPart: "",
   });
   const [editWorkout, setEditWorkout] = useState(null);
-
   const { user } = useAuthContext();
 
-  // Fetch workouts from the server
+  // Fetch workouts function
+  const fetchWorkouts = async (query = "") => {
+    try {
+      const url = `http://localhost:4000/api/exercises?name=${query}`;
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch workouts");
+      }
+
+      const data = await response.json();
+      setWorkouts(data);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   useEffect(() => {
     if (user) {
       fetchWorkouts();
     } else {
       alert("You are not logged in!");
-      return;
     }
   }, [user]);
 
-  const fetchWorkouts = async () => {
-    try {
-      const response = await fetch("http://localhost:4000/api/workouts", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Failed to fetch workouts");
-      }
-      const data = await response.json();
-      setWorkouts(data);
-    } catch (err) {
-      console.error("Failed to fetch workouts:", err);
-    }
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+    fetchWorkouts(e.target.value); // Fetch workouts with the search query
   };
 
   const handleChange = (e) => {
@@ -53,7 +62,7 @@ const WorkoutLog = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/api/workouts", {
+      const response = await fetch("http://localhost:4000/api/exercises", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,7 +78,13 @@ const WorkoutLog = () => {
 
       const addedWorkout = await response.json();
       setWorkouts([addedWorkout, ...workouts]);
-      setNewWorkout({ title: "", load: "", reps: "" });
+      setNewWorkout({
+        name: "",
+        focus: "",
+        videoLink: "",
+        image: "",
+        bodyPart: "",
+      });
     } catch (error) {
       console.error(error.message);
       alert(error.message);
@@ -78,6 +93,7 @@ const WorkoutLog = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+
     if (!user) {
       alert("You are not logged in!");
       return;
@@ -85,7 +101,7 @@ const WorkoutLog = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/api/workouts/${editWorkout._id}`,
+        `http://localhost:4000/api/exercises/${editWorkout._id}`,
         {
           method: "PATCH",
           headers: {
@@ -108,8 +124,7 @@ const WorkoutLog = () => {
         }
       }
 
-      // Fetch the updated list of workouts after the update
-      fetchWorkouts();
+      fetchWorkouts(); // Fetch the updated list of workouts after the update
       setEditWorkout(null);
     } catch (error) {
       console.error(error.message);
@@ -124,12 +139,15 @@ const WorkoutLog = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:4000/api/workouts/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `http://localhost:4000/api/exercises/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -149,18 +167,44 @@ const WorkoutLog = () => {
 
   return (
     <div className="w-full h-screen flex flex-col lg:flex-row items-center justify-center lg:px-24 md:px-16 sm:px-6 px-4 mt-5">
-      {/* Left Side - Display Workouts */}
+      {/* Left Side - Search and Display Workouts */}
       <div className="w-full lg:w-2/3 h-full p-6 bg-black/85 rounded-l-lg overflow-y-auto">
-        <h2 className="text-xl text-white font-semibold mb-4">Your Workouts</h2>
+        <h2 className="text-xl text-white font-semibold mb-4">Exercises</h2>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleSearch}
+          className="w-full mb-4 p-2 rounded bg-gray-800 text-white"
+          placeholder="Search by exercise name"
+        />
         {workouts.length > 0 ? (
           workouts.map((workout) => (
             <div
               key={workout._id}
               className="bg-gray-800 p-4 mb-4 rounded-lg text-white relative"
             >
-              <h3 className="text-lg font-semibold">{workout.title}</h3>
-              <p className="text-sm">Load: {workout.load}</p>
-              <p className="text-sm">Reps: {workout.reps}</p>
+              <h3 className="text-lg font-semibold">{workout.name}</h3>
+              <p className="text-sm">Focus: {workout.focus}</p>
+              <p className="text-sm">Body Part: {workout.bodyPart}</p>
+              {workout.videoLink && (
+                <p className="text-sm">
+                  <a
+                    href={workout.videoLink}
+                    className="text-blue-400"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Video Link
+                  </a>
+                </p>
+              )}
+              {workout.image && (
+                <img
+                  src={workout.image}
+                  alt={workout.name}
+                  className="w-full mt-2 rounded-lg"
+                />
+              )}
               <div className="absolute top-2 right-2 flex space-x-2">
                 <button onClick={() => setEditWorkout(workout)}>
                   <PencilIcon className="h-5 w-5 text-yellow-400" />
@@ -172,63 +216,89 @@ const WorkoutLog = () => {
             </div>
           ))
         ) : (
-          <p className="text-white">No workouts logged yet.</p>
+          <p className="text-white">No workouts found.</p>
         )}
       </div>
 
       {/* Right Side - Workout Form */}
       <div className="w-full lg:w-1/3 h-full p-6 bg-gray-900 rounded-r-lg">
         <h2 className="text-xl text-white font-semibold mb-4">
-          {editWorkout ? "Update Workout" : "Log a New Workout"}
+          {editWorkout ? "Update an exercise" : "Add new exercise"}
         </h2>
         <form
           onSubmit={editWorkout ? handleUpdate : handleSubmit}
           className="space-y-4"
         >
           <div>
-            <label className="block text-white mb-2">Workout Name</label>
+            <label className="block text-white mb-2">Name</label>
             <input
               type="text"
-              name="title"
-              value={editWorkout ? editWorkout.title : newWorkout.title}
+              name="name"
+              value={editWorkout ? editWorkout.name : newWorkout.name}
               onChange={editWorkout ? handleEditChange : handleChange}
               className="w-full p-2 rounded bg-gray-800 text-white"
               placeholder="Enter workout name"
             />
           </div>
           <div>
-            <label className="block text-white mb-2">Load</label>
+            <label className="block text-white mb-2">Focus</label>
             <input
               type="text"
-              name="load"
-              value={editWorkout ? editWorkout.load : newWorkout.load}
+              name="focus"
+              value={editWorkout ? editWorkout.focus : newWorkout.focus}
               onChange={editWorkout ? handleEditChange : handleChange}
               className="w-full p-2 rounded bg-gray-800 text-white"
-              placeholder="e.g., 100kg"
+              placeholder="Enter focus area"
             />
           </div>
           <div>
-            <label className="block text-white mb-2">Reps</label>
+            <label className="block text-white mb-2">Body Part</label>
             <input
               type="text"
-              name="reps"
-              value={editWorkout ? editWorkout.reps : newWorkout.reps}
+              name="bodyPart"
+              value={editWorkout ? editWorkout.bodyPart : newWorkout.bodyPart}
               onChange={editWorkout ? handleEditChange : handleChange}
               className="w-full p-2 rounded bg-gray-800 text-white"
-              placeholder="Enter number of reps"
+              placeholder="Enter body part"
+            />
+          </div>
+          <div>
+            <label className="block text-white mb-2">
+              Video Link (optional)
+            </label>
+            <input
+              type="text"
+              name="videoLink"
+              value={editWorkout ? editWorkout.videoLink : newWorkout.videoLink}
+              onChange={editWorkout ? handleEditChange : handleChange}
+              className="w-full p-2 rounded bg-gray-800 text-white"
+              placeholder="Enter video URL"
+            />
+          </div>
+          <div>
+            <label className="block text-white mb-2">
+              Image URL (optional)
+            </label>
+            <input
+              type="text"
+              name="image"
+              value={editWorkout ? editWorkout.image : newWorkout.image}
+              onChange={editWorkout ? handleEditChange : handleChange}
+              className="w-full p-2 rounded bg-gray-800 text-white"
+              placeholder="Enter image URL"
             />
           </div>
           <button
             type="submit"
-            className="w-full p-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition ease-out duration-500"
+            className="w-full py-2 px-4 rounded bg-red-600 hover:bg-red-700 text-white font-semibold"
           >
             {editWorkout ? "Update Workout" : "Add Workout"}
           </button>
           {editWorkout && (
             <button
               type="button"
+              className="w-full py-2 px-4 rounded bg-gray-500 hover:bg-gray-600 text-white font-semibold mt-2"
               onClick={() => setEditWorkout(null)}
-              className="w-full p-2 bg-gray-600 text-white font-semibold rounded mt-2 hover:bg-gray-700 transition ease-out duration-500"
             >
               Cancel
             </button>
@@ -239,4 +309,4 @@ const WorkoutLog = () => {
   );
 };
 
-export default WorkoutLog;
+export default ManageWorkouts;
