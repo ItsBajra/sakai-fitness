@@ -6,6 +6,7 @@ const cors = require("cors");
 const workoutRoutes = require("./src/routes/workouts");
 const userRoutes = require("./src/routes/userRoute");
 const exerciseRoutes = require("./src/routes/exerciseRoutes");
+const manageUserRoutes = require("./src/routes/manageUserRoutes");
 
 // express app
 const app = express();
@@ -25,6 +26,8 @@ app.use("/api/workouts", workoutRoutes);
 app.use("/api/exercises", exerciseRoutes);
 
 app.use("/api/user", userRoutes);
+
+app.use("/api/manageuser", manageUserRoutes);
 
 // connect to db
 mongoose
