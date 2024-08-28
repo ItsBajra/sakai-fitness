@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "66c981149047b46d1dcc124f"
+  },
+  "name": "ADMIN",
+  "email": "admin@admin.com",
+  "password": "$2b$10$a4Xiw2CbwspO4eo04qlBcuLZxpiQhqH.JHD5eeV.Y3QWFMCr87qOK",
+  "role": "admin",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c993dd34a6ae5c4069c03e"
+  },
+  "name": "Subarna Bajracharya",
+  "email": "buzzraws@gmail.com",
+  "password": "$2b$10$UM.UMLHLG/2s/2/1Zxw2D.F7tJAwNvl8WzRevbWcRH/bo.wmJ7suy",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c9b7ad34a6ae5c4069c046"
+  },
+  "name": "Subarna Bajracharya",
+  "email": "buzzraws1@gmail.com",
+  "password": "$2b$10$F23u1QeXjNryb4FKxiitUOgyYNoz6LbsnIQU6aoQUvMyxUFagHt.m",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66cafed52ed42efc908eab4e"
+  },
+  "name": "Bajra",
+  "email": "bajra@gmail.com",
+  "password": "$2b$10$X..W.2eFj2NRAA6oJ3ItMudHnPGe8w3F2C8HYP8l2OcEuhK2q54de",
+  "__v": 0,
+  "role": ""
+}]
